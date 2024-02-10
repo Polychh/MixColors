@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings
+  MixColors
+
+  Created by Polina on 06.02.2024.
+  
+*/
+
+"Red" = "Красный";
+"Light Green" = "Светло-зеленый";
+"Green" = "Зеленый";
+"SkyBlue" = "Небесно-синий";
+"Blue" = "Синий";
+"Yellow" = "Желтый";
+"Cyan" = "Голубой";
+"Magenta" = "Пурпурный";
+"Silver" = "Серебряный";
+"Gray" = "Серый";
+"Black" = "Черный";
+"White" = "Белый";
+"Purple" = "Фиолетовый";
+"Dark Purple" = "Темно-фиолетовый";
+"Orange" = "Оранжевый";
+"Pink" = "Розовый";
+"Light Yellow" = "Светло-желтый";
+"Dark Gray" = "Темно-серый";
+"Brown" = "Коричневый";
+"Light Gray" = "Светло-серый";
+"Dark Green" = "Темно-зеленый";
+"Sandy Brown" = "Песочный";
+
+"Dark Red" = "Тёмно-красный";
+"MidnightBlue" = "Темно-синий";
+"Olive" = "Оливковый";
+"Dark Brown" = "Тёмно-коричневый";
+"Indigo" = "Индиго";
+"RoyalBlue" = "Королевский синий";
+"Turquoise" = "Бирюзовый";
+"LimeGreen" = "Лаймово-зелёный";
+"LawnGreen" = "Пастбищный зелёный";
+"LightCoral" = "Кораловый";
+"FireRed" = "Огненно-красный";
+"OrangeRed" = "Оранжево-красный";
+"Crimson" = "Алый";
+"BlueViolet" = "Сине-Фиолетовый";
+"MediumSlateBlue" = "Средне-синий";
+"Wheat" = "Пшеничный";
+"Plum" = "Сливовый";
+"Teal" = "Бирюзовый";
+"GreenYellow" = "Зелено-желтый";
+"DarkViolet" = "Насыщено-фиолетовый";
+"BlackGray" = "Черно-серый";
+"YellowGreen" = "Желто-зеленый";
+"SeaGreen" = "Морская волнв";
+"LiteViolet" = "Светло-Фиолетовый";
+"LiteBrown" = "Светло-коричневый";
+"DimGray" = "Глубоко-серый";
+"Goldenrod" = "Золотой";
+"SteelBlue" = "Стальной";
+"DeepBlue" = "Насыщенно-синий";
