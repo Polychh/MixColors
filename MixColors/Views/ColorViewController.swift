@@ -12,16 +12,6 @@ final class ColorViewController: UIViewController {
     
     private let viewModel: ViewModelProtocol
     private var cancellables = Set<AnyCancellable>()
-    
-    init(viewModel: ViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     private let colorFirstLabel = UILabel()
     private let colorSecondLabel = UILabel()
     private let colorMixedLabel = UILabel()
@@ -54,6 +44,15 @@ final class ColorViewController: UIViewController {
         segmentedControl.addTarget(nil, action: #selector(segmentControl(_:)), for: .valueChanged)
         return segmentedControl
     }()
+    
+    init(viewModel: ViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func setUpLabels(label: UILabel){
         label.textAlignment = .center
@@ -109,16 +108,6 @@ final class ColorViewController: UIViewController {
         hideCollectionView(isHidden: false)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.saveInitialLang()
-        view.backgroundColor = .white
-        setUpComponents()
-        configureCollectionView()
-        setConstrains()
-        observeColors()
-    }
-    
     private func updateColors(button: UIButton, label: UILabel, view: UIView, mixLabel: UILabel, colorObserve: UIColor, color: UIColor){
         button.backgroundColor = colorObserve
         label.text = colorObserve.name?.localized
@@ -131,7 +120,6 @@ final class ColorViewController: UIViewController {
         viewModel.languagePublisher
             .receive(on: DispatchQueue.main)
             .sink {_ in
-                print(self.viewModel.language)
                 self.colorFirstLabel.text =   self.viewModel.color1.name?.localized
                 self.colorSecondLabel.text =  self.viewModel.color2.name?.localized
                 self.colorMixedLabel.text = self.viewModel.mixedColors(color1:  self.viewModel.color1, color2: self.viewModel.color2).name?.localized
@@ -151,6 +139,17 @@ final class ColorViewController: UIViewController {
                 self.updateColors(button: self.buttonSecondColor, label: self.colorSecondLabel, view: self.mixedColor, mixLabel: self.colorMixedLabel , colorObserve: color2, color:  self.viewModel.color1)
             }
             .store(in: &cancellables)
+    }
+    
+//MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.saveInitialLang()
+        view.backgroundColor = .white
+        setUpComponents()
+        configureCollectionView()
+        setConstrains()
+        observeColors()
     }
 }
 
@@ -230,7 +229,7 @@ extension ColorViewController{
         
         NSLayoutConstraint.activate([
             
-            colorFirstLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 150),
+            colorFirstLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 75),
             colorFirstLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             buttonFirstColor.topAnchor.constraint(equalTo: colorFirstLabel.bottomAnchor,constant: 24),

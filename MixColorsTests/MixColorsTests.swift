@@ -73,7 +73,7 @@ final class MixColorsTests: XCTestCase {
         let expectedResult = Language.russian.rawValue
         //When
         sut.saveInitialLang()
-        let setLang = UserDefaults.standard.string(forKey: "Localizable")
+        let setLang = UserDefaults.standard.string(forKey: Const.keyLang)
         //Then
         XCTAssertEqual(setLang, expectedResult)
     }

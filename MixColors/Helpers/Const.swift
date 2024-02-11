@@ -61,4 +61,6 @@ struct Const{
         ("#4682B4","SteelBlue"),
         ("#1E90FF","DeepBlue"),
     ]
+    
+    static let keyLang = "Localizable"
 }

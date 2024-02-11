@@ -24,7 +24,7 @@ final class LocaleService: LocaleServiceProtocol{
    var languagePublisher: Published<Language>.Publisher { $language }
        
     func saveLanguage(_ lang: String) {
-        UserDefaults.standard.set(lang, forKey: "Localizable")
+        UserDefaults.standard.set(lang, forKey: Const.keyLang)
         UserDefaults.standard.synchronize()
     }
     

@@ -16,6 +16,6 @@ extension String{
       }
     
       private func currentLanguage() -> String {
-          return UserDefaults.standard.string(forKey: "Localizable") ?? ""
+          return UserDefaults.standard.string(forKey: Const.keyLang) ?? ""
       }
 }

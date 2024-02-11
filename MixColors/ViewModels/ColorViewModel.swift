@@ -36,6 +36,8 @@ class ColorViewModel: ViewModelProtocol{
     private let localeServ: LocaleServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
+    var colorArray = ColorModel(array: [ColorToMix(color: UIColor.black), ColorToMix(color: UIColor.green),ColorToMix(color: UIColor.red), ColorToMix(color: UIColor.blue), ColorToMix(color: UIColor.white), ColorToMix(color: UIColor.gray), ColorToMix(color: UIColor.orange),ColorToMix(color: UIColor.yellow), ColorToMix(color: UIColor.brown),ColorToMix(color: UIColor.purple), ColorToMix(color: UIColor.darkGray),ColorToMix(color: UIColor.link),ColorToMix(color: UIColor.magenta)])
+    
     init(color1: UIColor = .white, color2: UIColor = .white, language: Language = .russian, localeServ: LocaleServiceProtocol) {
         self.color1 = color1
         self.color2 = color2
@@ -43,9 +45,7 @@ class ColorViewModel: ViewModelProtocol{
         self.localeServ = localeServ
         observe()
     }
-    
-    var colorArray = ColorModel(array: [ColorToMix(color: UIColor.black), ColorToMix(color: UIColor.green),ColorToMix(color: UIColor.red), ColorToMix(color: UIColor.blue), ColorToMix(color: UIColor.white), ColorToMix(color: UIColor.gray), ColorToMix(color: UIColor.orange),ColorToMix(color: UIColor.yellow), ColorToMix(color: UIColor.brown),ColorToMix(color: UIColor.purple), ColorToMix(color: UIColor.darkGray),ColorToMix(color: UIColor.link),ColorToMix(color: UIColor.magenta)])
-    
+        
     func mixedColors(color1: UIColor, color2: UIColor) -> UIColor{
         let firstColor = self.multiplyColor(color1, by: 0.5)
         let secondColor = self.multiplyColor(color2, by: 0.5)
@@ -72,6 +72,7 @@ class ColorViewModel: ViewModelProtocol{
     private func observe(){
         localeServ.languagePublisher
             .receive(on: DispatchQueue.main)
+            .dropFirst()
             .assign(to: \.language, on: self)
             .store(in: &cancellables)
     }
